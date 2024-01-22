@@ -31,9 +31,7 @@ public class TaskApp {
             month = "October";
         } else if (number == 11) {
             month = "November";
-        } else {
-            month = "December";
-        }
+        } else month = "December";
         System.out.println(month);
     }
 }
