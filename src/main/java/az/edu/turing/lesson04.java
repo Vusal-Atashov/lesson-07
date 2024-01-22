@@ -1,18 +1,13 @@
 package az.edu.turing;
 
+import java.util.Scanner;
 
 public class lesson04 {
     public static void main(String[] args) {
-
-
-        byte b1 = 4;
-        byte b2 = (byte)129;
-
-        System.out.println(b1);
-        System.out.println(b2);
-        int i=1;
-        byte b4=(byte)i;
-        System.out.println(b4);
+        Scanner scan=new Scanner(System.in);
+        System.out.print("Word :");
+        String word=scan.nextLine();
+        System.out.println(2*word.length());
 
     }
 }
