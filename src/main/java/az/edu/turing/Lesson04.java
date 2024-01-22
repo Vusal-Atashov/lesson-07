@@ -2,7 +2,7 @@ package az.edu.turing;
 
 import java.util.Scanner;
 
-public class lesson04 {
+public class Lesson04 {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         System.out.print("Word :");
