@@ -15,9 +15,8 @@ public class ArrayApp {
 
         for (int i = 0; i < arraySize; i++) {
             numArray[i] = scanner.nextInt();
-            if (i % 2 != 0) {
-                oddIndexSum += numArray[i];
-            } else evenIndexProd *= numArray[i];
+            if (i % 2 != 0) oddIndexSum += numArray[i];
+            else evenIndexProd *= numArray[i];
         }
         int max = numArray[0];
         int min = numArray[0];
@@ -26,13 +25,8 @@ public class ArrayApp {
             System.out.print(element * 2 + " ");
             sum += element;
             prod *= element;
-
-            if (max < element) {
-                max = element;
-            }
-            if (min > element) {
-                min = element;
-            }
+            if (max < element) max = element;
+            if (min > element) min = element;
         }
         System.out.println("\nSum: " + sum);
         System.out.println("Prod: " + prod);
