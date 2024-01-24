@@ -7,7 +7,7 @@ public class DiviserApp {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the number : ");
         int number = scanner.nextInt();
-        for (int i = 1; i <=number; i++) {
+        for (int i = 1; i <= number; i++) {
             if (number % i == 0) {
                 System.out.print(i + " ");
             }
