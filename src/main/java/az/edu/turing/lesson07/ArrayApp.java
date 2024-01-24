@@ -9,9 +9,14 @@ public class ArrayApp {
         Scanner scanner = new Scanner(System.in);
         int sum = 0;
         int prod = 1;
+        int oddIndexSum = 0;
+        int evenIndexProd = 1;
         int[] numArray = new int[arraySize];
         for (int i = 0; i < arraySize; i++) {
             numArray[i] = scanner.nextInt();
+            if (i % 2 != 0) {
+                oddIndexSum += numArray[i];
+            } else evenIndexProd *= numArray[i];
         }
         for (int element : numArray) {
             System.out.print(element * 2 + " ");
@@ -20,6 +25,8 @@ public class ArrayApp {
         }
         System.out.println("\nSum: " + sum);
         System.out.println("Prod: " + prod);
+        System.out.println("Odd index sum: " + oddIndexSum);
+        System.out.println("Even index prod: " + evenIndexProd);
         System.out.println(Arrays.toString(numArray));
     }
 }
