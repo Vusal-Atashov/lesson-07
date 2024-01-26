@@ -8,8 +8,8 @@ public class printMatrix {
         int[][] arrayTwoDimensional = new int[number][number];
         for (int i = 0; i < number; i++) {
             for (int j = 0; j < number; j++) {
-                array2D[i][j] = number;
-                System.out.print(array2D[i][j]);
+                arrayTwoDimensional[i][j] = number;
+                System.out.print(arrayTwoDimensional[i][j]);
             }
             System.out.println();
         }
