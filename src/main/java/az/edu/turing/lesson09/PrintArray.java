@@ -20,9 +20,8 @@ public class PrintArray {
 
     static void PrintArr(int[] a) {
         for (int i = 0; i < a.length; i++) {
-            System.out.print(a[i] + " ");
-            System.out.print(i);
-            System.out.println();
+            System.out.println(i + " -> " + a[i]);
+
         }
     }
 }
