@@ -13,6 +13,7 @@ public class Square {
         print(String.valueOf(circle * 2 * Math.PI));
         print(String.valueOf(Math.PI * circle * circle));
     }
+
     public static void print(String a) {
         System.out.println(a);
     }
