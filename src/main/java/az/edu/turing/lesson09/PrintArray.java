@@ -6,8 +6,6 @@ import java.util.Scanner;
 public class PrintArray {
     public static void main(String[] args) {
         for (int i = 0; i < 3; i++) {
-
-
             int[] arr = new int[ScannerHelper()];
             for (int j = 0; j < arr.length; j++) {
                 arr[j] = (int) (Math.random() * (100 + 1) + 0);
