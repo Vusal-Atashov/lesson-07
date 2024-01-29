@@ -8,7 +8,7 @@ public class PrintArray {
         for (int i = 0; i < 3; i++) {
             int[] arr = new int[ScannerHelper()];
             for (int j = 0; j < arr.length; j++) {
-                arr[j] = (int) (Math.random() * 100 );
+                arr[j] = (int) (Math.random() * 100);
             }
             PrintArr(arr);
         }
