@@ -13,7 +13,7 @@ public class Metods {
         System.out.println(new Scanner(System.in).nextInt() + 2);
     }
 
-    public static void doublePrint(double a) {
+    public static void doublePrint() {
         System.out.println(new Scanner(System.in).nextDouble() + 2);
     }
 }
