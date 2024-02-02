@@ -8,7 +8,6 @@ public class StringMethod {
         String email=scanner.nextLine();
         System.out.println(nameCut(email));
         nameLength(nameCut(email));
-
     }
     public static String nameCut(String email){
         return email.substring(0, email.indexOf("@"));
