@@ -17,5 +17,4 @@ public class StringMethod {
     public static void nameLength(String name) {
         System.out.println(name.length());
     }
-
 }
