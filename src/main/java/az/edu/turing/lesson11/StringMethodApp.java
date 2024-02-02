@@ -6,8 +6,8 @@ public class StringMethodApp {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String email = scanner.nextLine();
-        System.out.println(nameCut(email));
-        nameLength(nameCut(email));
+        String name=nameCut(email);
+        nameLength(name);
     }
 
     public static String nameCut(String email) {
@@ -15,6 +15,7 @@ public class StringMethodApp {
     }
 
     public static void nameLength(String name) {
+        System.out.println(name);
         System.out.println(name.length());
     }
 }
