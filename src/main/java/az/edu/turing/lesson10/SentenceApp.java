@@ -11,7 +11,6 @@ public class SentenceApp {
         print(sentence2.trim());
         print(sentence2.toLowerCase());
         print(sentence2.concat(sentence1));
-        print(sentence2.);
 
     }
     public static void print(String a){
