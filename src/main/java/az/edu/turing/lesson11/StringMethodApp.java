@@ -2,7 +2,7 @@ package az.edu.turing.lesson11;
 
 import java.util.Scanner;
 
-public class StringMethod {
+public class StringMethodApp {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String email = scanner.nextLine();
