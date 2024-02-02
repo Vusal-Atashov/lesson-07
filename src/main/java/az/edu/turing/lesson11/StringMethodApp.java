@@ -6,7 +6,7 @@ public class StringMethodApp {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String email = scanner.nextLine();
-        String name=nameCut(email);
+        String name = nameCut(email);
         nameLength(name);
     }
 
