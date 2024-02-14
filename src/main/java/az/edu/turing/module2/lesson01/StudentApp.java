@@ -16,7 +16,7 @@ public class StudentApp {
 
         Student maxGrade = maxGradeStudent(students);
 
-        System.out.println(" | " + maxGrade.name + " | " + maxGrade.age + " | " + maxGrade.grade + " | ");
+        System.out.println("| " + maxGrade.name + " | " + maxGrade.age + " | " + maxGrade.grade + " | ");
     }
 
     public static Student maxGradeStudent(Student[] students) {
