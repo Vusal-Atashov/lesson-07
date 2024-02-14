@@ -1,4 +1,4 @@
-package az.edu.turing.lesson09;
+package az.edu.turing.module1.lesson09;
 
 public class PrintNumber {
     public static void main(String[] args) {

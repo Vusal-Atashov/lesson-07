@@ -1,6 +1,5 @@
-package az.edu.turing.lesson09;
+package az.edu.turing.module1.lesson09;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class PrintArray {
