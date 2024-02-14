@@ -1,6 +1,6 @@
 package az.edu.turing.module2.lesson01;
 
-import java.util.Arrays;
+
 
 public class StudentApp {
     public static void main(String[] args) {
