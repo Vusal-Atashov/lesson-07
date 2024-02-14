@@ -12,10 +12,13 @@ public class StudentApp {
         students[1] = student2;
         students[2] = student3;
 
+        student1.setGrade(99.99);
+
         Student maxGrade = maxGradeStudent(students);
 
         System.out.println(" | " + maxGrade.name + " | " + maxGrade.age + " | " + maxGrade.grade + " | ");
     }
+
     public static Student maxGradeStudent(Student[] students) {
         double maxGarde = students[0].grade;
         int j = 0;
