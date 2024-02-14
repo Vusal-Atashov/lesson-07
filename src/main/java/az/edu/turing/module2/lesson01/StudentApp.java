@@ -16,7 +16,6 @@ public class StudentApp {
 
         System.out.println(" | " + maxGrade.name + " | " + maxGrade.age + " | " + maxGrade.grade + " | ");
     }
-
     public static Student maxGradeStudent(Student[] students) {
         double maxGarde = students[0].grade;
         int j = 0;

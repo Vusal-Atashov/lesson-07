@@ -29,7 +29,6 @@ public class Student {
 
     int age;
     Double grade;
-
     public Student(String name, int age, double grade) {
         this.name = name;
         this.age = age;
