@@ -9,7 +9,6 @@ public class StudentApp {
         Student[] students = new Student[3];
 
 
-
         students[0] = student1;
         students[1] = student2;
         students[2] = student3;
