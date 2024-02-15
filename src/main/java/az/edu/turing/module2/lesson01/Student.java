@@ -19,7 +19,6 @@ public class Student {
         this.age = age;
     }
 
-
     public Double getGrade() {
         return grade;
     }
