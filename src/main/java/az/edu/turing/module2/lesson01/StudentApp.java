@@ -6,7 +6,6 @@ public class StudentApp {
         Student student1 = new Student("vusal", 21, 71);
         Student student2 = new Student("ferid", 23, 65);
         Student student3 = new Student("Ismayil", 28, 86);
-
         Student[] students = new Student[3];
 
         students[0] = student1;
