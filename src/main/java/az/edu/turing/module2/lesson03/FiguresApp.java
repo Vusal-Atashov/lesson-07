@@ -1,10 +1,11 @@
 package az.edu.turing.module2.lesson03;
 
-public class CircleApp {
+public class FiguresApp {
     public static void main(String[] args) {
         Circle circle1 = new Circle(4, "red");
         Circle circle2 = new Circle(7.6, "blue");
         Circle circle3 = new Circle(9, "black");
+        Square square1 = new Square("yellow", 7.0);
         circle3.setColor("green");
 
         double length1 = calcLength(circle1.getRadius());
@@ -16,6 +17,7 @@ public class CircleApp {
         System.out.println(length2);
         System.out.println(length3);
         System.out.println(Circle.getCountOfCircle());
+        System.out.println(Square.getCountOfSquare());
 
     }
 
