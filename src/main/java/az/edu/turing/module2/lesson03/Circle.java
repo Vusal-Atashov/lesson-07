@@ -1,8 +1,7 @@
 package az.edu.turing.module2.lesson03;
 
 
-
-public class Circle extends Figures{
+public class Circle extends Figures {
     private double radius;
 
     private static long countOfCircle;
@@ -21,8 +20,6 @@ public class Circle extends Figures{
     public void setRadius(double radius) {
         this.radius = radius;
     }
-
-
 
     public static long getCountOfCircle() {
         return countOfCircle;
