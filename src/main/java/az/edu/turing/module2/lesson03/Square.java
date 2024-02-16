@@ -1,14 +1,14 @@
 package az.edu.turing.module2.lesson03;
 
-public class Square {
+public class Square extends Figures {
 
     private Double side;
-    private String color;
+
 
     private static long countOfSquare;
 
     public Square(String color, Double side) {
-
+        super(color);
         this.color = color;
         this.side = side;
         ++countOfSquare;
