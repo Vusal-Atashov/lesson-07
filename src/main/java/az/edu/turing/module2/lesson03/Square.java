@@ -1,10 +1,7 @@
 package az.edu.turing.module2.lesson03;
 
 public class Square extends Figures {
-
     private Double side;
-
-
     private static long countOfSquare;
 
     public Square(String color, Double side) {
