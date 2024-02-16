@@ -11,17 +11,6 @@ public class Square extends Figures {
         ++countOfSquare;
     }
 
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        if (!"white".equals(color)) {
-            this.color = color;
-        }
-    }
-
     public static long getCountOfSquare() {
         return countOfSquare;
     }
