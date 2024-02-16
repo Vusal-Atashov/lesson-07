@@ -5,5 +5,9 @@ public class Rectangle {
     double width;
     double length;
 
-
+    public Rectangle(String color, double width, double length) {
+        this.color = color;
+        this.width = width;
+        this.length = length;
+    }
 }
