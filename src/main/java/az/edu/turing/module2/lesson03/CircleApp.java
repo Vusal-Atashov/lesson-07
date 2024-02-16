@@ -6,13 +6,15 @@ public class CircleApp {
         Circle circle2 = new Circle(7.6, "blue");
         Circle circle3 = new Circle(9, "black");
 
-        System.out.println(Circle.getCountOfCircle());
         double length1 = calcLength(circle1.getRadius());
         double length2 = calcLength(circle2.getRadius());
         double length3 = calcLength(circle3.getRadius());
+
         System.out.println(length1);
         System.out.println(length2);
         System.out.println(length3);
+        System.out.println(Circle.getCountOfCircle());
+
     }
 
 
