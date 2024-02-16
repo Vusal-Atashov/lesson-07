@@ -26,8 +26,9 @@ public class Circle {
     }
 
     public void setColor(String color) {
-        if (!Objects.equals(color, "white"))
+        if (!"white".equals(color)) {
             this.color = color;
+        }
     }
 
     public static long getCountOfCircle() {
@@ -35,7 +36,7 @@ public class Circle {
 
     }
 
-    public static void setCountOfCircle(long countCircle) {
-        Circle.countOfCircle = countCircle;
+    public static void setCountOfCircle(long countOfCircle) {
+        Circle.countOfCircle = countOfCircle;
     }
 }
