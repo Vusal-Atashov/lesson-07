@@ -12,6 +12,8 @@ public class Figures {
     }
 
     public void setColor(String color) {
-        this.color = color;
+        if (!"white".equals(color)) {
+            this.color = color;
+        }
     }
 }
