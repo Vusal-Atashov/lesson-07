@@ -16,6 +16,7 @@ public class FiguresApp {
         System.out.println(length1);
         System.out.println(length2);
         System.out.println(length3);
+        System.out.println(square1.color);
         System.out.println(Circle.getCountOfCircle());
         System.out.println(Square.getCountOfSquare());
 
