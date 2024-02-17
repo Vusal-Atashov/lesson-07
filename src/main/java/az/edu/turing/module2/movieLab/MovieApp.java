@@ -11,7 +11,8 @@ public class MovieApp {
             System.out.println("Press 2 to print movie : ");
             System.out.println("Press 3 to input more movies : ");
             System.out.println("Press 4 to find statistics : ");
-            System.out.println("Press 5 to search for a movie.");
+            System.out.println("Press 5 to search for a movie :");
+            System.out.println("Press 7 to sort movies : ");
             System.out.println("Press 0 to exit : ");
             int input = scan.nextInt();
             switch (input) {
@@ -32,10 +33,27 @@ public class MovieApp {
                 case 5:
                     searchMovie(movies, scan);
                     break;
+                case 7:
+                    sortMovie(movies);
+                    break;
 
                 case 0:
                     return;
             }
+        }
+    }
+
+    private static void sortMovie(Movie[] movies) {
+        for (int i = 0; i < movies.length - 1; i++) {
+            int maxIndex = i;
+            for (int j = i + 1; j < movies.length; j++) {
+                if (movies[maxIndex].getRating() < movies[j].getRating()) {
+                    maxIndex = j;
+                }
+            }
+            Movie temp = movies[maxIndex];
+            movies[maxIndex] = movies[i];
+            movies[i] = temp;
         }
     }
 
