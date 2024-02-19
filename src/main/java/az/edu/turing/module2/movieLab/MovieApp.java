@@ -12,7 +12,9 @@ public class MovieApp {
             System.out.println("Press 3 to input more movies : ");
             System.out.println("Press 4 to find statistics : ");
             System.out.println("Press 5 to search for a movie :");
-            System.out.println("Press 7 to sort movies : ");
+            System.out.println("Press 6 to update movie ratings :");
+            System.out.println("Press 7 to delete movie :");
+            System.out.println("Press 8 to sort movies : ");
             System.out.println("Press 0 to exit : ");
             int input = scan.nextInt();
             switch (input) {
@@ -31,16 +33,37 @@ public class MovieApp {
                     System.out.println("Min rating : " + minMovieRating(movies));
                     break;
                 case 5:
-                    searchMovie(movies, scan);
+                    System.out.println("Enter the movie you are search for");
+                    int index5 = searchMovie(movies, scan);
+                    if (index5 != -1) System.out.println(movies[index5].getName() + "  " + movies[index5].getRating());
+                    else System.out.println("Movie not found.");
+                    break;
+                case 6:
+                    int index6 = searchMovie(movies, scan);
+                    movies[index6].setRating(scan.nextDouble());
                     break;
                 case 7:
+                    movies = deleteMovie(movies, searchMovie(movies, scan));
+                    break;
+                case 8:
                     sortMovie(movies);
                     break;
-
                 case 0:
                     return;
             }
         }
+    }
+
+    private static Movie[] deleteMovie(Movie[] movies, int index) {
+        Movie[] newArray = new Movie[movies.length - 1];
+        for (int i = 0; i < newArray.length; i++) {
+            if (i < index) {
+                newArray[i] = movies[i];
+            } else {
+                newArray[i] = movies[i + 1];
+            }
+        }
+        return newArray;
     }
 
     private static void sortMovie(Movie[] movies) {
@@ -57,19 +80,15 @@ public class MovieApp {
         }
     }
 
-    private static void searchMovie(Movie[] movies, Scanner scan) {
-        System.out.println("Enter the movie you are search for");
+    private static int searchMovie(Movie[] movies, Scanner scan) {
         String name = scan.next();
-        boolean a = false;
-        for (Movie rating : movies) {
-            if (rating.getName().equals(name)) {
-                System.out.println(rating.getName() + "  " + rating.getRating());
-                a = true;
+        int index = -1;
+        for (int i = 0; i < movies.length; i++) {
+            if (movies[i].getName().equals(name)) {
+                index = i;
             }
         }
-        if (!a) {
-            System.out.println("Movie not found.");
-        }
+        return index;
     }
 
     private static double minMovieRating(Movie[] movies) {
@@ -99,7 +118,6 @@ public class MovieApp {
         }
         return average / movies.length;
     }
-
 
     private static Movie[] createMovieArray(Movie[] movies, int n, Scanner scan) {
         Movie[] newArray = new Movie[movies.length + n];
