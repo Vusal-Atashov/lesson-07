@@ -9,6 +9,6 @@ public class HappyFamilyApp {
                 new Pet("cat", "Lusy"),
                 new Human("Sevda", "Hesenova", 1974),
                 new Human("Kamil", "Hesenov", 1960));
-        System.out.println(human1.toString());
+        System.out.println(human1);
     }
 }
