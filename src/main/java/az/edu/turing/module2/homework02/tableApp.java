@@ -12,13 +12,8 @@ public class tableApp {
         for (int i = 0; i < table.length; i++) {
             table[i]=-1;
         }
-        boolean a=false;
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i]==randomNum){
-                a=true;
-                break;
-            }
-        }
+
+
 
 
 
