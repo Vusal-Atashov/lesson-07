@@ -75,8 +75,11 @@ public class Pet {
     }
 
     public String toString() {
-        return String.format("%s { nickname = %s , age = %d , trickLevel = %d , habits =%s } ",
-                species, nickname, age, trickLevel, Arrays.toString(habits));
+        if (habits!=null) {
+            return String.format("%s { nickname = %s , age = %d , trickLevel = %d , habits =%s } ",
+                    species, nickname, age, trickLevel, Arrays.toString(habits));
+        }else  return String.format("%s { nickname = %s } ",
+                species, nickname);
     }
 
 }

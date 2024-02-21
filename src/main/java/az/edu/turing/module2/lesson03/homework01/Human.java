@@ -113,10 +113,15 @@ public class Human {
     }
 
     public String toString() {
+        if (mother != null) {
+            return String.format(
+                    "Human { name = %s , surname = %s , year = %d , iq = %d , mother = %s , father = %s , pet = %s",
+                    name, surname, year, iq, mother, father, pet.toString());
+        } else {
+            return String.format(
+                    "Human { name = %s , surname = %s , year = %d ", name, surname, year);
 
-        return String.format(
-                "Human { name = %s , surname = %s , year = %d , iq = %d , mother = %s , father = %s , pet = %s",
-                 name, surname, year, iq, mother, father, pet.toString());
+        }
 
     }
 }
