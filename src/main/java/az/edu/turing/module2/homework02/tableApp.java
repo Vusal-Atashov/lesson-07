@@ -20,6 +20,8 @@ public class tableApp {
             }
         }
 
+
+
     }
 
     public static int randomNumber(int [] arr) {
