@@ -9,15 +9,31 @@ public class tableApp {
                         "Selen", "Nəzrin", "İlham", "Fərid.H", "Aybəniz",
                         "Taleh", "Nurlan", "Leyla", "Eldar", "Kənan", "Aydan", "Əli"};
         int[] table =new int[17];
+        int index=0;
         for (int i = 0; i < table.length; i++) {
             table[i]=-1;
         }
-
-
-
+        while (true) {
+            boolean a=false;
+            int number=randomNumber();
+            for (int i = 0; i < table.length; i++) {
+                if (table[i]==number){
+                    a=true;
+                    break;
+                }
+            }
+            if (!a){
+                table[index]=number;
+                System.out.println(students[index]+" - "+table[index]);
+                ++index;
+            }
+            else if (index==17){
+                return;
+            }
+        }
     }
 
-    public static int randomNumber(int [] arr) {
+    public static int randomNumber() {
         Random random = new Random();
         int randomNum = random.nextInt(17);
         return randomNum;
