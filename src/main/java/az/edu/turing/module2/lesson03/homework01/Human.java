@@ -14,6 +14,16 @@ public class Human {
 
     }
 
+    public Human(String name, String surname, int year, int iq, Pet pet, Human mother, Human father) {
+        this.name = name;
+        this.surname = surname;
+        this.year = year;
+        this.iq = iq;
+        this.pet = pet;
+        this.mother = mother;
+        this.father = father;
+    }
+
     public Human(String name, String surname, int year) {
         this.name = name;
         this.surname = surname;
