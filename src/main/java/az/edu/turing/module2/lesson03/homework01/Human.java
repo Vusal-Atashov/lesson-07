@@ -114,14 +114,9 @@ public class Human {
 
     public String toString() {
 
-        return name +
-                " { name = " + name +
-                " , surname = " + surname +
-                " , year = " + year +
-                " , iq = " + iq +
-                " , mother = " + mother +
-                " , father = " + father +
-                " , pet = " + pet.toString();
+        return String.format(
+                "Human { name = %s , surname = %s , year = %d , iq = %d , mother = %s , father = %s , pet = %s",
+                 name, surname, year, iq, mother, father, pet.toString());
 
     }
 }
