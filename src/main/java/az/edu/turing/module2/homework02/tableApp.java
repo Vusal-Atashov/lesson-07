@@ -13,6 +13,8 @@ public class tableApp {
             table[i]=-1;
         }
 
+
+
     }
 
     public static int randomNumber(int [] arr) {
