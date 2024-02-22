@@ -4,11 +4,11 @@ import java.util.Random;
 
 public class seatsApp {
     public static void main(String[] args) {
-        //input
+        //Input
         String[] person = addPerson();
         int[] seats = new int[person.length];
 
-        //process
+        //Process
         int index = 0;
         boolean zero = false;
         while (index < seats.length) {
@@ -20,7 +20,7 @@ public class seatsApp {
                 if (num == 0) zero = true;
             }
         }
-        //output
+        //Output
         for (int i = 0; i < seats.length; i++) {
             System.out.printf("%d\t---\t%s\n", seats[i], person[i]);
         }
