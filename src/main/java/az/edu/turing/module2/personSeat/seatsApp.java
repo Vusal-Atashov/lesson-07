@@ -20,6 +20,7 @@ public class seatsApp {
                 if (num == 0) zero = true;
             }
         }
+
         //Output
         for (int i = 0; i < seats.length; i++) {
             System.out.printf("%d\t---\t%s\n", seats[i], person[i]);
