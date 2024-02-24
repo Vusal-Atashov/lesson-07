@@ -9,6 +9,16 @@ public class HappyFamilyApp {
                 new Pet("cat", "Lusy"),
                 new Human("Sevda", "Hesenova", 1974),
                 new Human("Kamil", "Hesenov", 1960));
-        System.out.println(human1);
+
+        Human human2 = new Human("Arif",
+                "Hesenov",
+                1999,
+                65,
+                new Pet("cat", "Lusy"),
+                new Human("Sevda", "Hesenova", 1974),
+                new Human("Kamil", "Hesenov", 1960));
+        System.out.println(human1.hashCode());
+        System.out.println(human2.hashCode());
+        System.out.println(human1.equals(human2));
     }
 }
