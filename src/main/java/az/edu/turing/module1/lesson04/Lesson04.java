@@ -8,5 +8,6 @@ public class Lesson04 {
         System.out.print("Word :");
         String word = scan.nextLine();
         System.out.println(2 * word.length());
+
     }
 }

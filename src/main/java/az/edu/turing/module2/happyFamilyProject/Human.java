@@ -1,9 +1,10 @@
-package az.edu.turing.module2.lesson03.homework01;
+package az.edu.turing.module2.happyFamilyProject;
 
 import java.util.Arrays;
 import java.util.Objects;
 
-public class Human {
+public class Human{
+
     private String name;
     private String surname;
     private int year;
@@ -12,9 +13,17 @@ public class Human {
     private Human mother;
     private Human father;
     private String[][] schedule;
+    private Family family;
 
     public Human() {
 
+    }
+
+    public Human(String name, String surname, int year, int iq) {
+        this.name = name;
+        this.surname = surname;
+        this.year = year;
+        this.iq = iq;
     }
 
     public Human(String name, String surname, int year, int iq, Pet pet, Human mother, Human father) {
@@ -116,8 +125,16 @@ public class Human {
         this.schedule = schedule;
     }
 
+    public Family getFamily() {
+        return family;
+    }
+
+    public void setFamily(Family family) {
+        this.family = family;
+    }
+
     public void greetPet() {
-        System.out.println("Hello," + pet);
+        System.out.println(pet.getNickname());
     }
 
     public void describePet() {
@@ -136,21 +153,14 @@ public class Human {
     @Override
     public int hashCode() {
         int result = Objects.hash(name, surname, year, iq, pet, mother, father);
-        result = 31 * result + Arrays.hashCode(schedule);
+        result = 31 * result + Arrays.deepHashCode(schedule);
         return result;
     }
 
     @Override
     public String toString() {
-        if (mother != null) {
-            return String.format(
-                    "Human { name = %s , surname = %s , year = %d , iq = %d , mother = %s , father = %s , pet = %s",
-                    name, surname, year, iq, mother, father, pet.toString());
-        } else {
-            return String.format(
-                    "Human { name = %s , surname = %s , year = %d ", name, surname, year);
-
-        }
-
+        return String.format(
+                "Human { name = %s , surname = %s , year = %d , iq = %d , mother = %s , father = %s , pet = %s",
+                name, surname, year, iq, mother.getName(), father.getName(), pet.getNickname());
     }
 }

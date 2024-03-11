@@ -3,7 +3,8 @@ package az.edu.turing.module2.happyFamilyProject;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class Family{
+public class Family {
+
     private Human mother;
     private Human father;
     private Human[] children;
@@ -64,11 +65,38 @@ public class Family{
         children = updatedChildren;
         return true;
     }
+    public boolean deleteChild(Human child) {
+        if (child!=null) {
+            for (int i = 0; i < children.length; i++) {
+                if (children[i].hashCode() == child.hashCode()) {
+                    Human[] updatedChildren = new Human[children.length - 1];
+                    System.arraycopy(children, 0, updatedChildren, 0, i);
+                    System.arraycopy(children, i + 1, updatedChildren, i, children.length - i - 1);
+                    children = updatedChildren;
+                    return true;
+                }
+            }
+        }return false;
+    }
 
     public int countFamily() {
-        if (null==pet) return children.length + 2;
+        if (null == pet) return children.length + 2;
         else return children.length + 3;
     }
+
+    public void describePet() {
+        System.out.println("I have an " + pet.getSpecies() + " is " + pet.getAge() + " years old,he is " +
+                ((pet.getTrickLevel() > 50) ? "very sly" : "almost not sly"));
+    }
+
+    public void welcomePet() {
+        System.out.println("Hello " + pet.getNickname());
+    }
+
+    public void toFeed() {
+        System.out.println(pet.getNickname() + "is eating");
+    }
+
 
     @Override
     public boolean equals(Object o) {

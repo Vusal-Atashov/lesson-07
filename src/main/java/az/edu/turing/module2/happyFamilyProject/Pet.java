@@ -1,21 +1,21 @@
-package az.edu.turing.module2.lesson03.homework01;
+package az.edu.turing.module2.happyFamilyProject;
 
 import java.util.Arrays;
 import java.util.Objects;
 
-public class Pet {
-    private String species;
+public abstract class Pet  {
+    private Species species;
     private String nickname;
     private int age;
     private int trickLevel;
     private String[] habits;
 
-    public Pet(String species, String nickname) {
+    public Pet(Species species, String nickname) {
         this.species = species;
         this.nickname = nickname;
     }
 
-    public Pet(String species, String nickname, int age, int trickLevel, String[] habits) {
+    public Pet(Species species, String nickname, int age, int trickLevel, String[] habits) {
         this.species = species;
         this.nickname = nickname;
         this.age = age;
@@ -23,11 +23,12 @@ public class Pet {
         this.habits = habits;
     }
 
-    public String getSpecies() {
+    public Species getSpecies() {
         return species;
     }
+    public abstract void eat();
 
-    public void setSpecies(String species) {
+    public void setSpecies(Species species) {
         this.species = species;
     }
 
@@ -63,9 +64,9 @@ public class Pet {
         this.habits = habits;
     }
 
-    public void eat() {
+   /* public void eat() {
         System.out.println("I am eating");
-    }
+    }*/
 
     public void respond() {
         System.out.println("Hello, owner. I am - " + nickname + ". I miss you!");
