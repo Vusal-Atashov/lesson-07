@@ -13,4 +13,14 @@ public class Dog extends Pet {
     public void eat() {
         System.out.println("Dog eat bone...");
     }
+
+    @Override
+    public void foul() {
+        System.out.println("I need to cover it up");
+    }
+
+    @Override
+    public void respond() {
+        System.out.println("Hello, owner. I am - " +getNickname() + ". I miss you!");
+    }
 }

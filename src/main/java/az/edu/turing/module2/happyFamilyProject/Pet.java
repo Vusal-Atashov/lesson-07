@@ -23,10 +23,10 @@ public abstract class Pet  {
         this.habits = habits;
     }
 
+    public abstract void eat();
     public Species getSpecies() {
         return species;
     }
-    public abstract void eat();
 
     public void setSpecies(Species species) {
         this.species = species;
@@ -64,17 +64,14 @@ public abstract class Pet  {
         this.habits = habits;
     }
 
-   /* public void eat() {
-        System.out.println("I am eating");
+
+    public abstract void respond(); /*{
+        System.out.println("Hello, owner. I am - " + nickname + ". I miss you!");
     }*/
 
-    public void respond() {
-        System.out.println("Hello, owner. I am - " + nickname + ". I miss you!");
-    }
-
-    public void foul() {
+    public abstract void foul();/* {
         System.out.println("I need to cover it up");
-    }
+    }*/
 
     @Override
     public boolean equals(Object o) {
