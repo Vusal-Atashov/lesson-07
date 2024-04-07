@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public interface FamilyDao {
     ArrayList<Family> getAllFamilies();
-    Family getFamilyByIndex();
+    Family getFamilyByIndex(int index);
     boolean deleteFamily(int index);
     boolean deleteFamily(Family family);
     void saveFamily(Family family);

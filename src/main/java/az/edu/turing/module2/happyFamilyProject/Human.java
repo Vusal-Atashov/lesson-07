@@ -1,12 +1,16 @@
 package az.edu.turing.module2.happyFamilyProject;
 
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
-public class Human{
+public class Human {
 
     private String name;
     private String surname;
-    private int year;
+    private long birthDate;
     private int iq;
     private Pet pet;
     private Human mother;
@@ -18,41 +22,48 @@ public class Human{
 
     }
 
-    public Human(String name, String surname, int year, int iq) {
+    public Human(String name, String surname, long birthDate, int iq) {
         this.name = name;
         this.surname = surname;
-        this.year = year;
+        this.birthDate = birthDate;
+        this.iq = iq;
+    }
+    public Human(String dob, String name, String surname, int iq) {
+        LocalDate birthDate = LocalDate.parse(dob, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        this.birthDate= birthDate.atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli();
+        this.name = name;
+        this.surname = surname;
         this.iq = iq;
     }
 
-    public Human(String name, String surname, int year, int iq, Pet pet, Human mother, Human father) {
+    public Human(String name, String surname, long birthDate, int iq, Pet pet, Human mother, Human father) {
         this.name = name;
         this.surname = surname;
-        this.year = year;
+        this.birthDate = birthDate;
         this.iq = iq;
         this.pet = pet;
         this.mother = mother;
         this.father = father;
     }
 
-    public Human(String name, String surname, int year) {
+    public Human(String name, String surname, long birthDate) {
         this.name = name;
         this.surname = surname;
-        this.year = year;
+        this.birthDate = birthDate;
     }
 
-    public Human(String name, String surname, int year, Human mother, Human father) {
+    public Human(String name, String surname, long birthDate, Human mother, Human father) {
         this.name = name;
         this.surname = surname;
-        this.year = year;
+        this.birthDate = birthDate;
         this.mother = mother;
         this.father = father;
     }
 
-    public Human(String name, String surname, int year, int iq, Pet pet, Human mother, Human father, HashMap schedule) {
+    public Human(String name, String surname, long birthDate, int iq, Pet pet, Human mother, Human father, HashMap schedule) {
         this.name = name;
         this.surname = surname;
-        this.year = year;
+        this.birthDate = birthDate;
         this.iq = iq;
         this.pet = pet;
         this.mother = mother;
@@ -76,12 +87,12 @@ public class Human{
         this.surname = surname;
     }
 
-    public int getYear() {
-        return year;
+    public long getBirthDate() {
+        return birthDate;
     }
 
-    public void setYear(int year) {
-        this.year = year;
+    public void setBirthDate(long birthDate) {
+        this.birthDate = birthDate;
     }
 
     public int getIq() {
@@ -140,25 +151,32 @@ public class Human{
         System.out.println("I have an " + pet.getSpecies() + " is " + pet.getAge() + " years old,he is " +
                 ((pet.getTrickLevel() > 50) ? "very sly" : "almost not sly"));
     }
+    public void describeAge(){
+
+    }
+    private String formatDOB() {
+        LocalDate dob = Instant.ofEpochMilli(birthDate).atZone(ZoneId.systemDefault()).toLocalDate();
+        return dob.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Human human = (Human) o;
-        return year == human.year && iq == human.iq && Objects.equals(name, human.name) && Objects.equals(surname, human.surname) && Objects.equals(pet, human.pet) && Objects.equals(mother, human.mother) && Objects.equals(father, human.father) && Objects.equals(schedule, human.schedule) && Objects.equals(family, human.family);
+        return birthDate == human.birthDate && iq == human.iq && Objects.equals(name, human.name) && Objects.equals(surname, human.surname) && Objects.equals(pet, human.pet) && Objects.equals(mother, human.mother) && Objects.equals(father, human.father) && Objects.equals(schedule, human.schedule) && Objects.equals(family, human.family);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, surname, year, iq, pet, mother, father, schedule, family);
+        return Objects.hash(name, surname, birthDate, iq, pet, mother, father, schedule, family);
     }
 
     @Override
     public String toString() {
         return String.format(
-                "Human { name = %s , surname = %s , year = %d , iq = %d , mother = %s , father = %s , pet = %s",
-                name, surname, year, iq, mother.getName(), father.getName(), pet.getNickname());
+                "Human { name = %s , surname = %s , birth date = %d , iq = %d , mother = %s , father = %s , pet = %s",
+                name, surname, formatDOB(), iq, mother.getName(), father.getName(), pet.getNickname());
     }
 
 }

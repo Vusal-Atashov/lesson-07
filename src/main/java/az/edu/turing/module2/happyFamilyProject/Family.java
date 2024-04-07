@@ -10,7 +10,7 @@ public class Family {
     private Human mother;
     private Human father;
     private ArrayList<Human> children;
-    private HashSet<Pet> pet;
+    private HashSet<Pet> pets;
 
     public Family() {
     }
@@ -20,7 +20,7 @@ public class Family {
         this.mother = mother;
         this.father = father;
         this.children = new ArrayList<Human>();
-        this.pet = new HashSet<Pet>();
+        this.pets = new HashSet<Pet>();
     }
 
 
@@ -49,11 +49,11 @@ public class Family {
     }
 
     public HashSet<Pet> getPet() {
-        return pet;
+        return pets;
     }
 
-    public void setPet(HashSet<Pet> pet) {
-        this.pet = pet;
+    public void addPet(Pet pet) {
+        pets.add(pet);
     }
 
     /*    public void addChild(Human child) {
@@ -101,21 +101,20 @@ public class Family {
     }
 
     public int countFamily() {
-        if (null == pet) return children.size() + 2;
-        else return children.size() + 3;
+      return children.size() + 2;
     }
 
     public void describePet() {
-        pet.stream().map(pet1 -> "I have an " + pet1.getSpecies() + " is " + pet1.getAge() + " years old,he is " +
+        pets.stream().map(pet1 -> "I have an " + pet1.getSpecies() + " is " + pet1.getAge() + " years old,he is " +
                 ((pet1.getTrickLevel() > 50) ? "very sly" : "almost not sly")).forEach(System.out::println);
     }
 
     public void welcomePet() {
-        System.out.println("Hello " + pet);
+        System.out.println("Hello " + pets);
     }
 
     public void toFeed() {
-        pet.stream().map(pet1 -> pet1.getNickname() + "is eating").forEach(System.out::println);
+        pets.stream().map(pet1 -> pet1.getNickname() + "is eating").forEach(System.out::println);
     }
 
 
@@ -124,18 +123,18 @@ public class Family {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Family family = (Family) o;
-        return Objects.equals(mother, family.mother) && Objects.equals(father, family.father) && Objects.equals(children, family.children) && Objects.equals(pet, family.pet);
+        return Objects.equals(mother, family.mother) && Objects.equals(father, family.father) && Objects.equals(children, family.children) && Objects.equals(pets, family.pets);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(mother, father, children, pet);
+        return Objects.hash(mother, father, children,pets);
     }
 
     @Override
     public String toString() {
         return String.format("Family{mother=%s,\nfather=%s,\nchildren=%s,\npet=%s}",
-                mother, father, children, pet);
+                mother, father, children, pets);
     }
 }
 

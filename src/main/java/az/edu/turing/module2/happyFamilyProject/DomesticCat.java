@@ -1,11 +1,13 @@
 package az.edu.turing.module2.happyFamilyProject;
 
+import java.util.HashSet;
+
 public class DomesticCat extends Pet {
     public DomesticCat(Species species, String nickname) {
         super(species, nickname);
     }
 
-    public DomesticCat(Species species, String nickname, int age, int trickLevel, String[] habits) {
+    public DomesticCat(Species species, String nickname, int age, int trickLevel, HashSet<String> habits) {
         super(species, nickname, age, trickLevel, habits);
     }
 

@@ -1,5 +1,6 @@
 package az.edu.turing.module2.lesson16;
 
+import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
@@ -37,7 +38,7 @@ public class lambdaExp {
          a.print(5);
         System.out.println(a.add(4));
 
-
+        System.out.println(LocalDate.now().getYear());
 
     }
 }
