@@ -11,8 +11,17 @@ public class numberApp {
         final int number1 = Integer.parseInt(line1);
         final int number2 = Integer.parseInt(line2);
 
-        final int divided = number1 / number2;
+        final int divided;
+        try {
+            divided = number1 / number2;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
         System.out.println(divided);
+        final String[] newArray = new String[]{"hsjdgjhsdgf", "asidbjhdsafj", "jsadgjhgsb", "kdsjbkasd"};
+        for (int i = 0; i <= newArray.length; i++) {
+            System.out.println(newArray[i]);
+        }
     }
 
 }

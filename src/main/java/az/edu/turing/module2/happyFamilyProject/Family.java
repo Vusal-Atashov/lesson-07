@@ -1,23 +1,28 @@
 package az.edu.turing.module2.happyFamilyProject;
 
-import java.util.Arrays;
+
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Objects;
 
 public class Family {
 
     private Human mother;
     private Human father;
-    private Human[] children;
-    private Pet pet;
+    private ArrayList<Human> children;
+    private HashSet<Pet> pet;
 
     public Family() {
     }
 
+
     public Family(Human mother, Human father) {
         this.mother = mother;
         this.father = father;
-        this.children = new Human[0];
+        this.children = new ArrayList<Human>();
+        this.pet = new HashSet<Pet>();
     }
+
 
     public Human getMother() {
         return mother;
@@ -35,38 +40,47 @@ public class Family {
         this.father = father;
     }
 
-    public Human[] getChildren() {
+    public ArrayList<Human> getChildren() {
         return children;
     }
 
-    public void setChildren(Human[] children) {
+    public void setChildren(ArrayList<Human> children) {
         this.children = children;
     }
 
-    public Pet getPet() {
+    public HashSet<Pet> getPet() {
         return pet;
     }
 
-    public void setPet(Pet pet) {
+    public void setPet(HashSet<Pet> pet) {
         this.pet = pet;
     }
 
+    /*    public void addChild(Human child) {
+                    Human[] updatedChildren = Arrays.copyOf(children, children.length + 1);
+                    updatedChildren[children.length] = child;
+                    children = updatedChildren;
+                }*/
     public void addChild(Human child) {
-        Human[] updatedChildren = Arrays.copyOf(children, children.length + 1);
-        updatedChildren[children.length] = child;
-        children = updatedChildren;
+        children.add(child);
     }
 
+    /*    public boolean deleteChild(int index) {
+            if (index < 0 || index >= children.length) return false;
+            Human[] updatedChildren = new Human[children.length - 1];
+            System.arraycopy(children, 0, updatedChildren, 0, index);
+            System.arraycopy(children, index + 1, updatedChildren, index, children.length - index - 1);
+            children = updatedChildren;
+            return true;
+        }*/
     public boolean deleteChild(int index) {
-        if (index < 0 || index >= children.length) return false;
-        Human[] updatedChildren = new Human[children.length - 1];
-        System.arraycopy(children, 0, updatedChildren, 0, index);
-        System.arraycopy(children, index + 1, updatedChildren, index, children.length - index - 1);
-        children = updatedChildren;
+        if (index < 0 || index >= children.size()) return false;
+        children.remove(index);
         return true;
     }
-    public boolean deleteChild(Human child) {
-        if (child!=null) {
+
+   /* public boolean deleteChild(Human child) {
+        if (child != null) {
             for (int i = 0; i < children.length; i++) {
                 if (children[i].hashCode() == child.hashCode()) {
                     Human[] updatedChildren = new Human[children.length - 1];
@@ -76,25 +90,32 @@ public class Family {
                     return true;
                 }
             }
-        }return false;
+        }
+        return false;
+    }*/
+
+    public boolean deleteChild(Human child) {
+        if (child == null) return false;
+        children.remove(child);
+        return true;
     }
 
     public int countFamily() {
-        if (null == pet) return children.length + 2;
-        else return children.length + 3;
+        if (null == pet) return children.size() + 2;
+        else return children.size() + 3;
     }
 
     public void describePet() {
-        System.out.println("I have an " + pet.getSpecies() + " is " + pet.getAge() + " years old,he is " +
-                ((pet.getTrickLevel() > 50) ? "very sly" : "almost not sly"));
+        pet.stream().map(pet1 -> "I have an " + pet1.getSpecies() + " is " + pet1.getAge() + " years old,he is " +
+                ((pet1.getTrickLevel() > 50) ? "very sly" : "almost not sly")).forEach(System.out::println);
     }
 
     public void welcomePet() {
-        System.out.println("Hello " + pet.getNickname());
+        System.out.println("Hello " + pet);
     }
 
     public void toFeed() {
-        System.out.println(pet.getNickname() + "is eating");
+        pet.stream().map(pet1 -> pet1.getNickname() + "is eating").forEach(System.out::println);
     }
 
 
@@ -103,21 +124,18 @@ public class Family {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Family family = (Family) o;
-        return Objects.equals(mother, family.mother) && Objects.equals(father, family.father) && Arrays.equals(children, family.children) && Objects.equals(pet, family.pet);
+        return Objects.equals(mother, family.mother) && Objects.equals(father, family.father) && Objects.equals(children, family.children) && Objects.equals(pet, family.pet);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(mother, father, pet);
-        result = 31 * result + Arrays.hashCode(children);
-        return result;
+        return Objects.hash(mother, father, children, pet);
     }
-
 
     @Override
     public String toString() {
         return String.format("Family{mother=%s,\nfather=%s,\nchildren=%s,\npet=%s}",
-                mother, father, Arrays.toString(children), pet);
+                mother, father, children, pet);
     }
 }
 

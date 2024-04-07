@@ -23,4 +23,5 @@ public class Dog extends Pet {
     public void respond() {
         System.out.println("Hello, owner. I am - " +getNickname() + ". I miss you!");
     }
+
 }

@@ -1,7 +1,6 @@
 package az.edu.turing.module2.happyFamilyProject;
 
-import java.util.Arrays;
-import java.util.Objects;
+import java.util.*;
 
 public class Human{
 
@@ -12,7 +11,7 @@ public class Human{
     private Pet pet;
     private Human mother;
     private Human father;
-    private String[][] schedule;
+    private HashMap<String, HashSet<String>> schedule;
     private Family family;
 
     public Human() {
@@ -50,7 +49,7 @@ public class Human{
         this.father = father;
     }
 
-    public Human(String name, String surname, int year, int iq, Pet pet, Human mother, Human father, String[][] schedule) {
+    public Human(String name, String surname, int year, int iq, Pet pet, Human mother, Human father, HashMap schedule) {
         this.name = name;
         this.surname = surname;
         this.year = year;
@@ -117,11 +116,11 @@ public class Human{
         this.father = father;
     }
 
-    public String[][] getSchedule() {
+    public HashMap<String, HashSet<String>> getSchedule() {
         return schedule;
     }
 
-    public void setSchedule(String[][] schedule) {
+    public void setSchedule(HashMap<String, HashSet<String>> schedule) {
         this.schedule = schedule;
     }
 
@@ -147,14 +146,12 @@ public class Human{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Human human = (Human) o;
-        return year == human.year && iq == human.iq && Objects.equals(name, human.name) && Objects.equals(surname, human.surname) && Objects.equals(pet, human.pet) && Objects.equals(mother, human.mother) && Objects.equals(father, human.father) && Arrays.equals(schedule, human.schedule);
+        return year == human.year && iq == human.iq && Objects.equals(name, human.name) && Objects.equals(surname, human.surname) && Objects.equals(pet, human.pet) && Objects.equals(mother, human.mother) && Objects.equals(father, human.father) && Objects.equals(schedule, human.schedule) && Objects.equals(family, human.family);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(name, surname, year, iq, pet, mother, father);
-        result = 31 * result + Arrays.deepHashCode(schedule);
-        return result;
+        return Objects.hash(name, surname, year, iq, pet, mother, father, schedule, family);
     }
 
     @Override
@@ -163,4 +160,5 @@ public class Human{
                 "Human { name = %s , surname = %s , year = %d , iq = %d , mother = %s , father = %s , pet = %s",
                 name, surname, year, iq, mother.getName(), father.getName(), pet.getNickname());
     }
+
 }
