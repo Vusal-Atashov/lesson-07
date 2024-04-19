@@ -97,7 +97,16 @@ public class MyLinkedList<E> {
 
 
     public void update(int index, E newData) {
-        Node<E> element = new Node<>(getData(index));
+        Node<E> element = head;
+        int searchIndex = 0;
+        if (index >= getSize()) {
+            System.out.println("Index out of bound");
+        } else {
+            while (searchIndex < index) {
+                element = element.getNext();
+                searchIndex++;
+            }
+        }
         element.setData(newData);
     }
 
