@@ -1,4 +1,6 @@
-package az.edu.turing.module2.happyFamilyProject;
+package az.edu.turing.module2.happyFamilyProject.PetsPackage;
+
+import az.edu.turing.module2.happyFamilyProject.Pet;
 
 import java.util.HashSet;
 
@@ -8,7 +10,7 @@ public class Dog extends Pet {
     }
 
     public Dog(Species species, String nickname, int age, int trickLevel, HashSet<String> habits) {
-        super(species, nickname, age, trickLevel,habits);
+        super(species, nickname, age, trickLevel, habits);
     }
 
     @Override
@@ -23,7 +25,7 @@ public class Dog extends Pet {
 
     @Override
     public void respond() {
-        System.out.println("Hello, owner. I am - " +getNickname() + ". I miss you!");
+        System.out.println("Hello, owner. I am - " + getNickname() + ". I miss you!");
     }
 
 }

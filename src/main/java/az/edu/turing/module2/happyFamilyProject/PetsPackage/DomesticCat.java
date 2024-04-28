@@ -1,4 +1,6 @@
-package az.edu.turing.module2.happyFamilyProject;
+package az.edu.turing.module2.happyFamilyProject.PetsPackage;
+
+import az.edu.turing.module2.happyFamilyProject.Pet;
 
 import java.util.HashSet;
 

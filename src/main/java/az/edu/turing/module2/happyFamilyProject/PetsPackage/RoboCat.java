@@ -1,19 +1,21 @@
-package az.edu.turing.module2.happyFamilyProject;
+package az.edu.turing.module2.happyFamilyProject.PetsPackage;
+
+import az.edu.turing.module2.happyFamilyProject.Pet;
 
 import java.util.HashSet;
 
-public class Fish extends Pet {
-    public Fish(Species species, String nickname) {
+public class RoboCat extends Pet {
+    public RoboCat(Species species, String nickname, int age, int trickLevel, DayOfWeek friday) {
         super(species, nickname);
     }
 
-    public Fish(Species species, String nickname, int age, int trickLevel, HashSet<String> habits) {
+    public RoboCat(Species species, String nickname, int age, int trickLevel, HashSet<String> habits) {
         super(species, nickname, age, trickLevel, habits);
     }
 
     @Override
     public void eat() {
-        System.out.println("Fiush eat warm...");
+        System.out.println("RoboCat eat is electric...");
     }
 
     @Override

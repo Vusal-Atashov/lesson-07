@@ -1,16 +1,20 @@
 package az.edu.turing.module2.happyFamilyProject;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Objects;
 
-public class Family {
+public class Family implements Serializable {
 
     private Human mother;
     private Human father;
     private ArrayList<Human> children;
     private HashSet<Pet> pets;
+    public void greetPet(){
+      pets.forEach(pet -> System.out.print(pet+"hello"));
+    }
 
     public Family() {
     }
@@ -56,43 +60,18 @@ public class Family {
         pets.add(pet);
     }
 
-    /*    public void addChild(Human child) {
-                    Human[] updatedChildren = Arrays.copyOf(children, children.length + 1);
-                    updatedChildren[children.length] = child;
-                    children = updatedChildren;
-                }*/
+
     public void addChild(Human child) {
         children.add(child);
     }
 
-    /*    public boolean deleteChild(int index) {
-            if (index < 0 || index >= children.length) return false;
-            Human[] updatedChildren = new Human[children.length - 1];
-            System.arraycopy(children, 0, updatedChildren, 0, index);
-            System.arraycopy(children, index + 1, updatedChildren, index, children.length - index - 1);
-            children = updatedChildren;
-            return true;
-        }*/
+
     public boolean deleteChild(int index) {
         if (index < 0 || index >= children.size()) return false;
         children.remove(index);
         return true;
     }
 
-   /* public boolean deleteChild(Human child) {
-        if (child != null) {
-            for (int i = 0; i < children.length; i++) {
-                if (children[i].hashCode() == child.hashCode()) {
-                    Human[] updatedChildren = new Human[children.length - 1];
-                    System.arraycopy(children, 0, updatedChildren, 0, i);
-                    System.arraycopy(children, i + 1, updatedChildren, i, children.length - i - 1);
-                    children = updatedChildren;
-                    return true;
-                }
-            }
-        }
-        return false;
-    }*/
 
     public boolean deleteChild(Human child) {
         if (child == null) return false;
@@ -101,22 +80,21 @@ public class Family {
     }
 
     public int countFamily() {
-      return children.size() + 2;
+        return children.size() + 2;
     }
 
-    public void describePet() {
-        pets.stream().map(pet1 -> "I have an " + pet1.getSpecies() + " is " + pet1.getAge() + " years old,he is " +
-                ((pet1.getTrickLevel() > 50) ? "very sly" : "almost not sly")).forEach(System.out::println);
+    public String prettyFormat() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("family:\n");
+        sb.append("\tmother: ").append(mother.toString()).append(",\n");
+        sb.append("\tfather: ").append(father.toString()).append(",\n");
+        sb.append("\tchildren: \n");
+        for (Human child : children) {
+            sb.append("\t\t").append(child.toString()).append("\n");
+        }
+        sb.append("\tpets: ").append(pets.toString());
+        return sb.toString();
     }
-
-    public void welcomePet() {
-        System.out.println("Hello " + pets);
-    }
-
-    public void toFeed() {
-        pets.stream().map(pet1 -> pet1.getNickname() + "is eating").forEach(System.out::println);
-    }
-
 
     @Override
     public boolean equals(Object o) {
@@ -128,12 +106,12 @@ public class Family {
 
     @Override
     public int hashCode() {
-        return Objects.hash(mother, father, children,pets);
+        return Objects.hash(mother, father, children, pets);
     }
 
     @Override
     public String toString() {
-        return String.format("Family{mother=%s,\nfather=%s,\nchildren=%s,\npet=%s}",
+        return String.format("\nfamily:\n\tmother=%s,\n\tfather=%s,\n\t\tchildren=%s,\n\t\tpet=%s",
                 mother, father, children, pets);
     }
 }

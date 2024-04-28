@@ -1,4 +1,6 @@
-package az.edu.turing.module2.happyFamilyProject;
+package az.edu.turing.module2.happyFamilyProject.DAOPackage;
+
+import az.edu.turing.module2.happyFamilyProject.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -6,11 +8,29 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class FamilyService {
+    public static final String HAPPY_FAMILY_FILE_PACKAGE="src/main/java/az/edu/turing/module2/happyFamilyProject/FilePackage/";
+    private static final String FAMILY_FILE = HAPPY_FAMILY_FILE_PACKAGE+"FamilyFile.ser";
+    private final FamilyDao familyDao;
 
-    private FamilyDao familyDao;
+
+    public void saveDataLocally() {
+        List<Family> families = familyDao.getAllFamilies();
+        FileUtils.saveDataToFile(families, FAMILY_FILE);
+        LoggerService.info("Data saved locally.");
+    }
+
+    public void loadDataLocally() {
+        List<Family> families = FileUtils.loadDataFromFile(FAMILY_FILE);
+        if (families != null) {
+            familyDao.loadData(families);
+            LoggerService.info("Data loaded from local file.");
+        } else {
+            LoggerService.error("Failed to load data from local file.");
+        }
+    }
+
 
     public FamilyService(FamilyDao familyDao) {
         this.familyDao = familyDao;
@@ -21,29 +41,26 @@ public class FamilyService {
     }
 
     public void displayAllFamilies() {
-        ArrayList<Family> families = getAllFamilies();
-        IntStream.range(0, families.size()).mapToObj(i -> "Family " + (i + 1) + ": " + families.get(i).toString()).forEach(System.out::println);
+        getAllFamilies().stream()
+                .map(family -> "Family: " + family.toString())
+                .forEach(System.out::println);
     }
 
     public List<Family> getFamiliesBiggerThan(int numberOfPeople) {
-        List<Family> families = getAllFamilies();
-        return families.stream()
+        return getAllFamilies().stream()
                 .filter(family -> family.countFamily() > numberOfPeople)
                 .collect(Collectors.toList());
     }
 
     public List<Family> getFamiliesLessThan(int numberOfPeople) {
-        List<Family> families = getAllFamilies();
-        return families.stream()
+        return getAllFamilies().stream()
                 .filter(family -> family.countFamily() < numberOfPeople)
                 .collect(Collectors.toList());
     }
 
     public int countFamiliesWithMemberNumber(int numberOfPeople) {
-        int count;
-        List<Family> families = getAllFamilies();
-        count = (int) families.stream().filter(family -> family.countFamily() == numberOfPeople).count();
-        return count;
+        return (int) getAllFamilies().stream().
+                filter(family -> family.countFamily() == numberOfPeople).count();
     }
 
     public void createNewFamily(Human father, Human mother) {
@@ -72,13 +89,11 @@ public class FamilyService {
     }
 
     public void deleteAllChildrenOlderThan(int age) {
-        List<Family> families = getAllFamilies();
-        families.forEach(family -> {
-            family.getChildren().forEach(child -> {
-                long childAge = LocalDate.now().getYear() - child.getBirthDate();
-                if (childAge > age) family.deleteChild(child);
-            });
-        });
+        getAllFamilies().forEach(family ->
+                family.getChildren().removeIf(child ->
+                        LocalDate.now().getYear() - child.getBirthDate() > age
+                )
+        );
     }
 
     public int count() {

@@ -1,23 +1,24 @@
 package az.edu.turing.module2.happyFamilyProject;
 
-import java.util.Arrays;
+import az.edu.turing.module2.happyFamilyProject.PetsPackage.DayOfWeek;
+import az.edu.turing.module2.happyFamilyProject.PetsPackage.Species;
+
 import java.util.HashSet;
 import java.util.Objects;
-import java.util.Set;
 
 public abstract class Pet  {
     private Species species;
     private String nickname;
     private int age;
     private int trickLevel;
-    private HashSet<String> habits;
+    private HashSet<DayOfWeek> habits;
 
     public Pet(Species species, String nickname) {
         this.species = species;
         this.nickname = nickname;
     }
 
-    public Pet(Species species, String nickname, int age, int trickLevel, HashSet<String> habits) {
+    public Pet(Species species, String nickname, int age, int trickLevel, HashSet<DayOfWeek> habits) {
         this.species = species;
         this.nickname = nickname;
         this.age = age;
@@ -58,11 +59,11 @@ public abstract class Pet  {
         this.trickLevel = trickLevel;
     }
 
-    public HashSet<String> getHabits() {
+    public HashSet<DayOfWeek> getHabits() {
         return habits;
     }
 
-    public void setHabits(HashSet<String> habits) {
+    public void setHabits(HashSet<DayOfWeek> habits) {
         this.habits = habits;
     }
 
@@ -74,16 +75,19 @@ public abstract class Pet  {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Pet pet = (Pet) o;
-        return age == pet.age && trickLevel == pet.trickLevel && species == pet.species && Objects.equals(nickname, pet.nickname) && Objects.equals(habits, pet.habits);
+        return species == pet.species && Objects.equals(nickname, pet.nickname);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(species, nickname, age, trickLevel, habits);
+        return Objects.hash(species, nickname);
     }
 
     @Override
     public String toString() {
-        return String.format("Pet{species=%s, nickname='%s', age=%d, trickLevel=%d, habits=%s}", species, nickname, age, trickLevel, habits);
+        return "Pet{" +
+                "species=" + species +
+                ", nickname='" + nickname + '\'' +
+                '}';
     }
 }
